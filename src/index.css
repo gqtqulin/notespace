@@ -1,0 +1,127 @@
+
+@font-face {
+    font-family: 'OpirusOpik';
+    src: url('fonts/Opirus/OpirusOpik.ttf')
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .page {
+    @apply min-w-[300px] min-h-[500px] gap-y-4 w-screen h-screen bg-black flex flex-col justify-between font-custom;
+  }
+
+  .header {
+    @apply flex justify-center items-center flex-col flex-wrap border-solid border-b-2 border-white;
+  }
+
+  .header-logo {
+    @apply flex justify-center items-center basis-1;
+  }
+
+  .control-buttons-container {
+    @apply mb-2 flex text-white text-3xl flex-wrap flex-row gap-x-2 justify-center;
+  }
+
+  .short-address-container {
+    @apply flex items-center justify-center max-sm:order-first max-sm:w-[100%];
+  }
+
+  .add-note-button-container {
+    @apply flex ;
+  }
+
+  .out-button-container {
+    @apply flex ;
+  }
+
+  .logo {
+    @apply h-[40px] w-[40px];
+  }
+
+  .logo-text {
+    @apply text-5xl text-black text-white;
+  }
+
+  .main-section {
+    @apply flex flex-1 overflow-scroll justify-center;
+  }
+
+  .footer {
+    @apply flex items-center flex-col justify-center text-3xl text-white border-solid border-t-2 border-white;
+  }
+
+
+  
+  .login-container {
+    @apply flex w-[45%] flex-wrap items-stretch justify-between gap-y-3 gap-x-1;
+  }
+
+  .go-space-button {
+    @apply basis-full;
+  }
+
+  .connect-metamask-button {
+    @apply basis-[49%] max-sm:basis-full;
+  }
+
+  .change-metamask-button {
+    @apply basis-[49%] max-sm:basis-full;
+  }
+
+  .button {
+    @apply p-2 text-3xl bg-black text-white rounded-md disabled:bg-neutral-800 disabled:text-zinc-400 border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+  }
+
+  .metamask-buttons-container {
+    @apply flex max-sm:flex-col;
+  }
+
+
+  .work-space-container {
+    @apply flex items-start;
+  }
+
+  .control-panel-container {
+    @apply flex justify-center;
+  }
+
+  .notes-list {
+    @apply flex flex-wrap justify-center gap-4 text-white text-3xl;
+  }
+
+  .list-item {
+    @apply p-2 h-20 w-24 flex items-center justify-center flex-none border-solid border-white border-2 rounded-lg hover:border-indigo-800 hover:font-black;
+  }
+
+  .note-form {
+    @apply h-[100%] flex flex-col;
+  }
+
+  .rest-form {
+    @apply flex h-[15%] justify-around mb-4 items-center;
+  }
+
+  .text-area-container {
+    @apply h-full w-screen flex items-center justify-center;
+  }
+
+  .text-area {
+    @apply w-[98%] h-full rounded-lg;
+  }
+
+  .note-name-input {
+    @apply text-white text-3xl bg-black border-solid border-white border-b-2;
+  }
+
+  .note-container {
+    @apply h-[80%] w-[95%];
+  }
+
+  .note-image {
+    @apply w-16 h-16;
+  }
+}
