@@ -5,13 +5,15 @@ const LoginSpace = ({isLogin, setIsLogin, setAccount, handleChangeModeButtonClic
 
     const handleGetAccountClick = async () => {
         const accounts = await ethRequestAccounts()
-        if (accounts == undefined) {
-            alert('Metamask connection failed')
-            return;
-        }
-        console.log(accounts)
-        setAccount(accounts[0])
-        setIsLogin(true)
+        setTimeout(() => {
+            if (accounts == undefined) {
+                alert('Metamask connection failed')
+                return;
+            }
+            console.log(accounts[0])
+            setAccount(accounts[0])
+            setIsLogin(true)
+        }, 1000)
     }
 
     return (

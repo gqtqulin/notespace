@@ -1,43 +1,41 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 
 const Note = ({setIsEditMode, notes, setNotes, currentId}) => {
-    const [noteName, setNoteName] = useState('')
-    const [noteText, setNote] = useState('')
+    const [noteName, setNoteName] = useState(notes[currentId].title)
+    const [noteText, setNote] = useState(notes[currentId].note)
 
-    const handleGoBack = (e) => {
+    // попробовать сделать сохранение с помощью useEffect без нажатия по кнопке
+    const handleSubmitForm = (e) => {
         e.preventDefault();
+        setNotes((prev) => {
+            const newNotes = {...prev};
+            const updatedNote = {title: noteName, note: noteText}
+            newNotes[currentId] = updatedNote
+
+            setIsEditMode(false)
+            return newNotes
+        })
+    }
+
+    const handleGoBack = () => {
         setIsEditMode(false)
     }
 
-    const handleChangeNote = (e) => {
-        setNote(e.target.value)
-        console.log('note-state is changed')
-    }
-
-    const onChangeNoteName = (e) => {
-        setNoteName(e.target.value);
-        console.log('name-state is changed')
-    }
-
     useEffect(() => {
-        const updatedNotes = [...notes];
-        const selectedNote = updatedNotes.find(note => note.id === currentId)
-        if (selectedNote) {
-            selectedNote.title = noteName
-            selectedNote.note = noteText
-        }
-        setNotes(updatedNotes)
-    }, [noteName, noteText])
+        console.log('вызов эффекта при монтаже компонента ноутс')
+        console.log(notes[currentId])
+        console.log(notes[currentId].title)
+        console.log(notes[currentId].note)
+    }, []) 
 
     return (<div className="note-container">
-        <form className="note-form" onSubmit={handleGoBack}>
+        <form className="note-form" onSubmit={handleSubmitForm}>
             <div className="rest-form">
-                <input type="text" placeholder='change note name here' value={notes[currentId - 1].title} className="note-name-input" onChange={onChangeNoteName}></input>
-                <p className="note-label">note</p>
-                <input className="button" value="Back" type="submit" />
+                <input type="text" value={noteName} placeholder='change note name here' className="note-name-input" onChange={(e) => setNoteName(e.target.value)}></input>
+                <input className="button" value="Save" type="submit" />
             </div>
             <div className="text-area-container">
-                <textarea className="text-area" value={notes[currentId - 1].note} onChange={handleChangeNote} />
+                <textarea className="text-area" value={noteText} onChange={(e) => setNote(e.target.value)} />
             </div>
         </form>
     </div>

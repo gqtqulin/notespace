@@ -110,7 +110,7 @@
   }
 
   .text-area {
-    @apply w-[98%] h-full rounded-lg;
+    @apply w-[98%] font-sans text-lg h-full rounded-lg;
   }
 
   .note-name-input {

@@ -1,29 +1,28 @@
 import logoInverted from './img/logo-inverted.png'
 import {useEffect, useState} from 'react'
 
-const Header = ({isSpaceMode, account, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {
+const Header = ({isSpaceMode, setIsSpaceMode, account, setAccount, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {
     const [addButtonLoader, setAddButtonLoader] = useState(false);
     const [id, setId] = useState(1);
 
     const handleCreateNoteButtonClick = () => {
         setAddButtonLoader(true)
-        setTimeout(() => {
-            setNotes((prev) => {
-                return [...prev, {
-                    id: id,
-                    title: '',
-                    note: ''
-                }];
-            })
-        }, 10)
+        setNotes((prev) => {
+            const newNote = {title: '', note: ''}   
+            const newNotes = {...prev}
+            newNotes[id] = newNote
+            return newNotes
+        })
+
         setAddButtonLoader(false)
         setId(prev => prev = prev + 1)
-        console.log(...notes)
+
+        //console.log(notes)
     }
 
-    useEffect(() => {
-        console.log('массив notes изменен')
-    }, [notes])
+    const handleOutButtonClick = () => {
+        setIsSpaceMode(!isSpaceMode)
+    }
 
     const getShortAddress = (account) => {
         const shortAddress = account.slice(0, 5) + '...' + account.slice(account.length - 4, account.length)
@@ -44,7 +43,7 @@ const Header = ({isSpaceMode, account, notes, setNotes, isEditMode, handleChange
                     <p>{getShortAddress(account)}</p>
                 </div>
                 <div className="out-button-container">
-                    <button className="button" disabled={isEditMode} onClick={handleChangeModeButtonClick}>Out &#128272;</button>
+                    <button className="button" disabled={isEditMode} onClick={handleOutButtonClick}>Out &#128272;</button>
                 </div>
             </div>}
       </header>
