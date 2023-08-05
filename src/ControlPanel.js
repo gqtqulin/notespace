@@ -1,12 +1,12 @@
 import Note from './Note'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
-const ControlPanel = ({notes, setCurrentId, setIsEditMode}) => {
+const ControlPanel = ({notes, account, setId, setNotes, setCurrentId, setIsEditMode}) => {
 
     const handleStartEditMode = (key) => {
         setIsEditMode(true)
         setCurrentId(key)
-        //console.log(key)
+        console.log(`start edit mode with id:${key}`)
     }
 
     const createList = () => {

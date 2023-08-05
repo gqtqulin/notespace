@@ -1,10 +1,9 @@
 import logoInverted from './img/logo-inverted.png'
 import {useEffect, useState} from 'react'
 
-const Header = ({isSpaceMode, setIsSpaceMode, account, setAccount, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {
+const Header = ({isSpaceMode, id, setId, setIsSpaceMode, account, setAccount, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {
     const [addButtonLoader, setAddButtonLoader] = useState(false);
-    const [id, setId] = useState(1);
-
+    
     const handleCreateNoteButtonClick = () => {
         setAddButtonLoader(true)
         setNotes((prev) => {
@@ -16,8 +15,6 @@ const Header = ({isSpaceMode, setIsSpaceMode, account, setAccount, notes, setNot
 
         setAddButtonLoader(false)
         setId(prev => prev = prev + 1)
-
-        //console.log(notes)
     }
 
     const handleOutButtonClick = () => {

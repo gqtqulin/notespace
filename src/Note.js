@@ -21,13 +21,6 @@ const Note = ({setIsEditMode, notes, setNotes, currentId}) => {
         setIsEditMode(false)
     }
 
-    useEffect(() => {
-        console.log('вызов эффекта при монтаже компонента ноутс')
-        console.log(notes[currentId])
-        console.log(notes[currentId].title)
-        console.log(notes[currentId].note)
-    }, []) 
-
     return (<div className="note-container">
         <form className="note-form" onSubmit={handleSubmitForm}>
             <div className="rest-form">

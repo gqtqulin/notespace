@@ -2,23 +2,21 @@ import {useState, useEffect} from 'react'
 import Note from './Note'
 import ControlPanel from './ControlPanel'
 
-function WorkSpace({account, handleChangeModeButtonClick, setNotes, notes, isEditMode, setIsEditMode}) {
+function WorkSpace({account, id, setId, handleChangeModeButtonClick, setNotes, notes, isEditMode, setIsEditMode}) {
     const [currentId, setCurrentId] = useState();
-
-    useEffect(() => {
-        localStorage.setItem({account}, JSON.stringify(notes))
-        console.log(`useEffect при изменениях в notes ${account}`)
-    }, [notes, account])
-
-    useEffect(() => {
+    const [storedNote, setStoredNote] = useState(() => {
         const data = JSON.parse(localStorage.getItem(account))
-        console.log(`localStorage data: ${data}, account:${account}`)
-        if (data && Object.keys(data).length > 0) {
+        if (data) {
             setNotes(data)
-        } else {
-            setNotes({})
         }
-    }, [])
+        return data
+    })
+
+    // Обновление данных в localStorage при изменении состояния заметок
+    useEffect(() => {
+        localStorage.setItem(account, JSON.stringify(notes));
+        //console.log(`${JSON.stringify(account)} and ${JSON.stringify(notes)}`)
+    }, [notes]);
 
     return (<div className="work-space-container">
         {isEditMode ? 
