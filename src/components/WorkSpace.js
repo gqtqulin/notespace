@@ -1,13 +1,14 @@
 import {useState, useEffect} from 'react'
-import Note from './components/Note'
-import ControlPanel from './components/ControlPanel'
+import Note from './Note'
+import ControlPanel from './ControlPanel'
 
 function WorkSpace({account, id, setId, handleChangeModeButtonClick, setNotes, notes, isEditMode, setIsEditMode}) {
     const [currentId, setCurrentId] = useState();
     const [storedNote, setStoredNote] = useState(() => {
         const data = JSON.parse(localStorage.getItem(account))
         if (data) {
-            setNotes(data)
+            setNotes(data);
+            setId(Object.keys(data).length);
         }
         return data
     })
