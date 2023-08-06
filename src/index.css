@@ -1,7 +1,6 @@
-
 @font-face {
-    font-family: 'OpirusOpik';
-    src: url('fonts/Opirus/OpirusOpik.ttf')
+  font-family: "OpirusOpik";
+  src: url("fonts/Opirus/OpirusOpik.ttf");
 }
 
 @tailwind base;
@@ -9,41 +8,8 @@
 @tailwind utilities;
 
 @layer components {
-
   .page {
     @apply min-w-[300px] min-h-[500px] gap-y-4 w-screen h-screen bg-black flex flex-col justify-between font-custom;
-  }
-
-  .header {
-    @apply flex justify-center items-center flex-col flex-wrap border-solid border-b-2 border-white;
-  }
-
-  .header-logo {
-    @apply flex justify-center items-center basis-1;
-  }
-
-  .control-buttons-container {
-    @apply mb-2 flex text-white text-3xl flex-wrap flex-row gap-x-2 justify-center;
-  }
-
-  .short-address-container {
-    @apply flex items-center justify-center max-sm:order-first max-sm:w-[100%];
-  }
-
-  .add-note-button-container {
-    @apply flex ;
-  }
-
-  .out-button-container {
-    @apply flex ;
-  }
-
-  .logo {
-    @apply h-[40px] w-[40px];
-  }
-
-  .logo-text {
-    @apply text-5xl text-black text-white;
   }
 
   .main-section {
@@ -54,8 +20,6 @@
     @apply flex items-center flex-col justify-center text-3xl text-white border-solid border-t-2 border-white;
   }
 
-
-  
   .login-container {
     @apply flex w-[45%] flex-wrap items-stretch justify-between gap-y-3 gap-x-1;
   }
@@ -79,7 +43,6 @@
   .metamask-buttons-container {
     @apply flex max-sm:flex-col;
   }
-
 
   .work-space-container {
     @apply flex items-start;

@@ -13,7 +13,6 @@ function WorkSpace({account, id, setId, handleChangeModeButtonClick, setNotes, n
         return data
     })
 
-    // Обновление данных в localStorage при изменении состояния заметок
     useEffect(() => {
         localStorage.setItem(account, JSON.stringify(notes));
         //console.log(`${JSON.stringify(account)} and ${JSON.stringify(notes)}`)

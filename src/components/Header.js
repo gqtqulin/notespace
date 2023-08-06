@@ -1,50 +1,79 @@
-import logoInverted from '../img/logo-inverted.png'
-import {useEffect, useState} from 'react'
+import logoInverted from "../img/logo-inverted.png";
+import { useState } from "react";
+import styles from "./Header.module.css";
 
-const Header = ({isSpaceMode, id, setId, setIsSpaceMode, account, setAccount, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {
-    const [addButtonLoader, setAddButtonLoader] = useState(false);
-    
-    const handleCreateNoteButtonClick = () => {
-        setAddButtonLoader(true)
-        setNotes((prev) => {
-            const newNote = {title: '', note: ''}   
-            const newNotes = {...prev}
-            newNotes[id] = newNote
-            return newNotes
-        })
+const Header = ({
+  isSpaceMode,
+  id,
+  setId,
+  setIsSpaceMode,
+  account,
+  setAccount,
+  notes,
+  setNotes,
+  isEditMode,
+  handleChangeModeButtonClick,
+}) => {
+  const [addButtonLoader, setAddButtonLoader] = useState(false);
 
-        setAddButtonLoader(false)
-        setId(prev => prev = prev + 1)
-    }
+  const handleCreateNoteButtonClick = () => {
+    setAddButtonLoader(true);
+    setNotes((prev) => {
+      const newNote = { title: "", note: "" };
+      const newNotes = { ...prev };
+      newNotes[id] = newNote;
+      return newNotes;
+    });
 
-    const handleOutButtonClick = () => {
-        setIsSpaceMode(!isSpaceMode)
-    }
+    setAddButtonLoader(false);
+    setId((prev) => (prev = prev + 1));
+  };
 
-    const getShortAddress = (account) => {
-        const shortAddress = account.slice(0, 5) + '...' + account.slice(account.length - 4, account.length)
-        return shortAddress;
-      }
+  const handleOutButtonClick = () => {
+    setIsSpaceMode(!isSpaceMode);
+  };
 
-    return (
-        <header className="header">
-            <div className="header-logo">
-                <p className="logo-text">NoteSPACE</p>
-                <img src={logoInverted} className="logo" alt='logo'/>
-            </div>
-            {isSpaceMode && <div className="control-buttons-container">
-                <div className="add-note-button-container">
-                    <button disabled={isEditMode || addButtonLoader} className="button add-note-button" onClick={handleCreateNoteButtonClick}>Add &#128451;</button>
-                </div>
-                <div className="short-address-container">
-                    <p>{getShortAddress(account)}</p>
-                </div>
-                <div className="out-button-container">
-                    <button className="button" disabled={isEditMode} onClick={handleOutButtonClick}>Out &#128272;</button>
-                </div>
-            </div>}
-      </header>
-    )
-}
+  const getShortAddress = (account) => {
+    const shortAddress =
+      account.slice(0, 5) +
+      "..." +
+      account.slice(account.length - 4, account.length);
+    return shortAddress;
+  };
 
-export default Header
+  return (
+    <header className={styles.header}>
+      <div className={styles.headerLogo}>
+        <p className={styles.logoText}>NoteSPACE</p>
+        <img src={logoInverted} className={styles.logo} alt="logo" />
+      </div>
+      {isSpaceMode && (
+        <div className={styles.controlButtonsContainer}>
+          <div className={styles.addNoteButtonContainer}>
+            <button
+              disabled={isEditMode || addButtonLoader}
+              className={styles.button}
+              onClick={handleCreateNoteButtonClick}
+            >
+              Add &#128451;
+            </button>
+          </div>
+          <div className={styles.shortAddressContainer}>
+            <p>{getShortAddress(account)}</p>
+          </div>
+          <div className={styles.outButtonContainer}>
+            <button
+              className="button"
+              disabled={isEditMode}
+              onClick={handleOutButtonClick}
+            >
+              Out &#128272;
+            </button>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
