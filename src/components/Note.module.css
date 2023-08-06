@@ -1,0 +1,27 @@
+.noteContainer {
+  @apply h-[80%] w-[95%];
+}
+
+.noteForm {
+  @apply h-[100%] flex flex-col;
+}
+
+.restForm {
+  @apply flex h-[15%] justify-around mb-4 items-center;
+}
+
+.noteNameInput {
+  @apply text-white text-3xl bg-black border-solid border-white border-b-2;
+}
+
+.button {
+  @apply p-2 text-3xl bg-black text-white rounded-md disabled:bg-neutral-800 disabled:text-zinc-400 border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+}
+
+.textAreaContainer {
+  @apply h-full w-screen flex items-center justify-center;
+}
+
+.textArea {
+  @apply w-[98%] font-sans text-lg h-full rounded-lg;
+}

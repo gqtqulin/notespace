@@ -1,0 +1,3 @@
+.workSpaceContainer {
+  @apply flex items-start;
+}

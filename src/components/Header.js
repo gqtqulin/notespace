@@ -63,7 +63,7 @@ const Header = ({
           </div>
           <div className={styles.outButtonContainer}>
             <button
-              className="button"
+              className={styles.button}
               disabled={isEditMode}
               onClick={handleOutButtonClick}
             >
