@@ -1,4 +1,4 @@
-import {ethRequestAccounts} from './EthereumRequests'
+import {ethRequestAccounts} from '../EthereumRequests'
 import {useState} from 'react'
 
 const LoginSpace = ({isLogin, setIsLogin, setAccount, handleChangeModeButtonClick}) => {

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
-import Note from './Note'
-import ControlPanel from './ControlPanel'
+import Note from './components/Note'
+import ControlPanel from './components/ControlPanel'
 
 function WorkSpace({account, id, setId, handleChangeModeButtonClick, setNotes, notes, isEditMode, setIsEditMode}) {
     const [currentId, setCurrentId] = useState();

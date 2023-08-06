@@ -1,4 +1,4 @@
-import logoInverted from './img/logo-inverted.png'
+import logoInverted from '../img/logo-inverted.png'
 import {useEffect, useState} from 'react'
 
 const Header = ({isSpaceMode, id, setId, setIsSpaceMode, account, setAccount, notes, setNotes, isEditMode, handleChangeModeButtonClick}) => {

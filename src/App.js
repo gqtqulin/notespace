@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
-import LoginSpace from './LoginSpace'
+import LoginSpace from './components/LoginSpace'
 import WorkSpace from './WorkSpace'
-import Header from './Header'
-import Footer from './Footer'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import {ethAccounts} from './EthereumRequests'
 
 function App() {
