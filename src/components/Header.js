@@ -1,12 +1,14 @@
 import logoInverted from "../img/logo-inverted.png";
 import { useState } from "react";
 import styles from "./Header.module.css";
+import { ethAccounts } from "../EthereumRequests";
 
 const Header = ({
   isSpaceMode,
   id,
   setId,
   setIsSpaceMode,
+  setIsLogin,
   account,
   setAccount,
   notes,
@@ -16,20 +18,29 @@ const Header = ({
 }) => {
   const [addButtonLoader, setAddButtonLoader] = useState(false);
 
-  const handleCreateNoteButtonClick = () => {
-    setAddButtonLoader(true);
-    setNotes((prev) => {
-      const newNote = { title: "", note: "" };
-      const newNotes = { ...prev };
-      newNotes[id] = newNote;
-      return newNotes;
-    });
-
-    setAddButtonLoader(false);
-    setId((prev) => (prev = prev + 1));
+  const handleCreateNoteButtonClick = async () => {
+    const accounts = await ethAccounts();
+    if (accounts[0] === account) {
+      setNotes((prev) => {
+        const newNote = { title: "", note: "" };
+        const newNotes = { ...prev };
+        newNotes[id] = newNote;
+        return newNotes;
+      });
+      setId((prev) => (prev = prev + 1));
+    } else {
+      alert("Re-connect account");
+      setIsLogin(false);
+      setIsSpaceMode(false);
+    }
   };
 
-  const handleOutButtonClick = () => {
+  const handleOutButtonClick = async () => {
+    const accounts = await ethAccounts();
+    if (accounts[0] !== account) {
+      alert("Re-connect account");
+      setIsLogin(false);
+    } 
     setIsSpaceMode(!isSpaceMode);
   };
 

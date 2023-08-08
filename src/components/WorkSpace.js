@@ -5,6 +5,7 @@ import styles from "./WorkSpace.module.css";
 
 function WorkSpace({
   account,
+  setAccount,
   id,
   setId,
   handleChangeModeButtonClick,
@@ -12,6 +13,8 @@ function WorkSpace({
   notes,
   isEditMode,
   setIsEditMode,
+  setIsLogin,
+  setIsSpaceMode
 }) {
   const [currentId, setCurrentId] = useState();
   const [storedNote, setStoredNote] = useState(() => {
@@ -41,8 +44,11 @@ function WorkSpace({
       ) : (
         <ControlPanel
           notes={notes}
+          account={account}
           setIsEditMode={setIsEditMode}
           setCurrentId={setCurrentId}
+          setIsLogin={setIsLogin}
+          setIsSpaceMode={setIsSpaceMode}
         />
       )}
     </div>

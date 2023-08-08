@@ -30,6 +30,7 @@ function App() {
         isSpaceMode={isSpaceMode}
         id={id}
         setId={setId}
+        setIsLogin={setIsLogin}
         setIsSpaceMode={setIsSpaceMode}
         account={account}
         setAccount={setAccount}
@@ -44,12 +45,14 @@ function App() {
             id={id}
             setId={setId}
             account={account}
+            setAccount={setAccount}
             setIsLogin={setIsLogin}
             notes={notes}
             setNotes={setNotes}
             handleChangeModeButtonClick={handleChangeModeButtonClick}
             isEditMode={isEditMode}
             setIsEditMode={setIsEditMode}
+            setIsSpaceMode={setIsSpaceMode}
           />
         ) : (
           <LoginSpace

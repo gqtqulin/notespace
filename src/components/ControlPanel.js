@@ -1,6 +1,5 @@
-import Note from "./Note";
-import { useState, useEffect } from "react";
 import styles from './ContolPanel.module.css';
+import { ethAccounts } from "../EthereumRequests";
 
 const ControlPanel = ({
   notes,
@@ -9,11 +8,21 @@ const ControlPanel = ({
   setNotes,
   setCurrentId,
   setIsEditMode,
+  setIsSpaceMode,
+  setIsLogin
 }) => {
-  const handleStartEditMode = (key) => {
-    setIsEditMode(true);
-    setCurrentId(key);
-    console.log(`start edit mode with id:${key}`);
+
+  const handleStartEditMode = async (key) => {
+    const accounts = await ethAccounts();
+    if (accounts[0] === account) {
+      setIsEditMode(true);
+      setCurrentId(key);
+      console.log(`start edit mode with id:${key}`);
+    } else {
+      alert("Re-connect account");
+      setIsLogin(false);
+      setIsSpaceMode(false);
+    }
   };
 
   const createList = () => {
@@ -44,7 +53,7 @@ const ControlPanel = ({
       {Object.keys(notes).length > 0 ? (
         createList()
       ) : (
-        <p className="">Time to create!</p>
+        <p className="color-white">Time to create!</p>
       )}
     </div>
   );
