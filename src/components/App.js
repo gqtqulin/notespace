@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import LoginSpace from './LoginSpace';
-import WorkSpace from './WorkSpace';
-import Header from './Header';
-import Footer from './Footer';
-import { ethAccounts } from '../EthereumRequests';
-import styles from './App.module.css';
+import { useState, useEffect } from "react";
+import LoginSpace from "./LoginSpace";
+import WorkSpace from "./WorkSpace";
+import Header from "./Header";
+import Footer from "./Footer";
+import { ethAccounts } from "../EthereumRequests";
+import styles from "./App.module.css";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -19,10 +19,28 @@ function App() {
     if (accounts[0] === account) {
       setIsSpaceMode(!isSpaceMode);
     } else {
-      alert('Re-connect account');
+      alert("Re-connect account");
       setIsLogin(false);
     }
   };
+
+  useEffect(() => {
+    window.ethereum.on("accountsChanged", handleAccountsChanged);
+  }, []);
+
+  function handleAccountsChanged(accounts) {
+    if (accounts.length === 0) {
+      alert("Please connect to MetaMask.");
+      console.log("Please connect to MetaMask.");
+    } else if (accounts[0] !== account) {
+      setIsLogin(false);
+      setAccount();
+      setNotes({});
+      setIsEditMode(false);
+      setIsSpaceMode(false);
+      alert('account change detect: re-connect your account please');
+    }
+  }
 
   return (
     <div className={styles.page}>

@@ -3,7 +3,7 @@
 }
 
 .button {
-  @apply p-2 text-3xl bg-black text-white rounded-md disabled:bg-neutral-800 disabled:text-zinc-400 border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+  @apply p-2 text-4xl bg-black text-white rounded-md disabled:bg-neutral-800 disabled:text-zinc-400 border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
 }
 
 .goSpaceButton {
@@ -16,4 +16,8 @@
 
 .changeMetamaskButton {
   @apply basis-[49%] max-sm:basis-full;
+}
+
+.buttonsContainer {
+  @apply basis-[49%] flex flex-col gap-y-4 max-sm:basis-full;
 }

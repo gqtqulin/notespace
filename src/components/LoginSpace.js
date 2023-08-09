@@ -27,21 +27,27 @@ const LoginSpace = ({
         disabled={!isLogin}
         onClick={handleChangeModeButtonClick}
       >
-        go into SPACE &#127760;
+        SPACE &#127760;
       </button>
       <button
         className={`${styles.button} ${styles.connectMetamaskButton}`}
         disabled={isLogin}
         onClick={handleGetAccountClick}
       >
-        connect METAMASK &#129418;
+        METAMASK &#129418;
       </button>
-      <button
-        className={`${styles.button} ${styles.changeMetamaskButton}`}
-        disabled={!isLogin}
-      >
-        change account &#128260;
-      </button>
+      <div className={styles.buttonsContainer}>
+        <button
+          className={`${styles.button} ${styles.changeMetamaskButton}`}
+        >
+          about &#128260;
+        </button>
+        <button
+          className={`${styles.button} ${styles.changeMetamaskButton}`}
+        >
+          anything &#128260;
+        </button>
+      </div>
     </div>
   );
 };
