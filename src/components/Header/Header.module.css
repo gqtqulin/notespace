@@ -1,5 +1,5 @@
 .header {
-  @apply flex justify-center items-center flex-col flex-wrap border-solid border-b-2 border-white;
+  @apply flex justify-center items-center flex-col flex-wrap;
 }
 
 .headerLogo {
@@ -23,7 +23,9 @@
 }
 
 .button {
-  @apply p-2 text-3xl bg-black text-white rounded-md disabled:bg-neutral-800 disabled:text-zinc-400 border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+  @apply p-2 text-3xl bg-black text-white rounded-md
+   disabled:bg-neutral-800 disabled:text-zinc-400 
+   border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
 }
 
 .shortAddressContainer {

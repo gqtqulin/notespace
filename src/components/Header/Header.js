@@ -1,7 +1,7 @@
-import logoInverted from "../img/logo-inverted.png";
+import logoInverted from "../../img/logo-inverted.png";
 import { useState } from "react";
 import styles from "./Header.module.css";
-import { ethAccounts } from "../EthereumRequests";
+import { ethAccounts } from "../../EthereumRequests";
 
 const Header = ({
   isSpaceMode,

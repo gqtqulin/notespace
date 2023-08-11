@@ -1,0 +1,9 @@
+.page {
+  @apply min-w-[280px] min-h-[500px]
+  gap-y-4 w-screen h-screen bg-black
+  flex flex-col justify-between font-custom;
+}
+
+.mainSection {
+  @apply flex flex-1 overflow-scroll justify-center items-center;
+}

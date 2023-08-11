@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import LoginSpace from "./LoginSpace";
-import WorkSpace from "./WorkSpace";
-import Header from "./Header";
-import Footer from "./Footer";
-import { ethAccounts } from "../EthereumRequests";
+import LoginSpace from "../LoginSpace/LoginSpace";
+import WorkSpace from "../WorkSpace/WorkSpace";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import { ethAccounts } from "../../EthereumRequests";
 import styles from "./App.module.css";
 
 function App() {

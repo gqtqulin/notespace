@@ -1,4 +1,4 @@
-import { ethRequestAccounts } from "../EthereumRequests";
+import { ethRequestAccounts } from "../../EthereumRequests";
 import styles from "./LoginSpace.module.css";
 
 const LoginSpace = ({

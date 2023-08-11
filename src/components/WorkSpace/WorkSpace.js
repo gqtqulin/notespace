@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Note from "./Note";
-import ControlPanel from "./ControlPanel";
+import Note from "../Note/Note";
+import ControlPanel from "../ControlPanel/ControlPanel";
 import styles from "./WorkSpace.module.css";
 
 function WorkSpace({

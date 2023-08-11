@@ -1,5 +1,5 @@
 import styles from './ContolPanel.module.css';
-import { ethAccounts } from "../EthereumRequests";
+import { ethAccounts } from "../../EthereumRequests";
 
 const ControlPanel = ({
   notes,
