@@ -45,6 +45,7 @@ const Header = ({
   };
 
   const getShortAddress = (account) => {
+    if (!account) return "metamask account is not found";
     const shortAddress =
       account.slice(0, 5) +
       "..." +
@@ -58,9 +59,8 @@ const Header = ({
         <p className={styles.logoText}>NoteSPACE</p>
         <img src={logoInverted} className={styles.logo} alt="logo" />
       </div>
-      {isSpaceMode && (
         <div className={styles.controlButtonsContainer}>
-          <div className={styles.addNoteButtonContainer}>
+          {isSpaceMode && <div className={styles.addNoteButtonContainer}>
             <button
               disabled={isEditMode || addButtonLoader}
               className={styles.button}
@@ -68,11 +68,11 @@ const Header = ({
             >
               Add &#128451;
             </button>
-          </div>
+          </div>}
           <div className={styles.shortAddressContainer}>
             <p>{getShortAddress(account)}</p>
           </div>
-          <div className={styles.outButtonContainer}>
+          {isSpaceMode && <div className={styles.outButtonContainer}>
             <button
               className={styles.button}
               disabled={isEditMode}
@@ -80,9 +80,8 @@ const Header = ({
             >
               Out &#128272;
             </button>
-          </div>
+          </div>}
         </div>
-      )}
     </header>
   );
 };
