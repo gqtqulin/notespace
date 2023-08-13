@@ -3,7 +3,10 @@
 }
 
 .listItem {
-  @apply p-2 h-20 w-24 flex items-center justify-center flex-none border-solid border-white border-2 rounded-lg hover:border-indigo-800 hover:font-black;
+  @apply p-2 h-20 w-24 flex items-center
+  justify-center flex-none border-solid 
+  border-white border-2 rounded-lg 
+  hover:border-indigo-800 hover:font-black;
 }
 
 .controlPanelContainer {

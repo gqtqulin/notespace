@@ -1,12 +1,14 @@
 .loginContainer {
-  @apply flex w-[42%] h-[40%] flex-wrap items-stretch justify-between gap-y-3 gap-x-1
+  @apply flex w-[42%] h-[40%] flex-wrap
+  items-stretch justify-between gap-y-3 gap-x-1
   max-lg:w-[80%];
 }
 
 .button {
   @apply p-2 text-4xl bg-black text-white
   rounded-md disabled:bg-neutral-800 disabled:text-zinc-400
-  border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+  border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black
+  enabled:hover:text-indigo-200;
 }
 
 .goSpaceButton {

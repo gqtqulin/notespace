@@ -14,7 +14,7 @@ function WorkSpace({
   isEditMode,
   setIsEditMode,
   setIsLogin,
-  setIsSpaceMode
+  setIsSpaceMode,
 }) {
   const [currentId, setCurrentId] = useState();
   const [storedNote, setStoredNote] = useState(() => {
@@ -33,24 +33,17 @@ function WorkSpace({
 
   return (
     <div className={styles.workSpaceContainer}>
-      {isEditMode ? (
-        <Note
-          isEditMode={isEditMode}
-          notes={notes}
-          setNotes={setNotes}
-          currentId={currentId}
-          setIsEditMode={setIsEditMode}
-        />
-      ) : (
-        <ControlPanel
-          notes={notes}
-          account={account}
-          setIsEditMode={setIsEditMode}
-          setCurrentId={setCurrentId}
-          setIsLogin={setIsLogin}
-          setIsSpaceMode={setIsSpaceMode}
-        />
-      )}
+      <ControlPanel
+        notes={notes}
+        setNotes={setNotes}
+        account={account}
+        setIsEditMode={setIsEditMode}
+        setCurrentId={setCurrentId}
+        setIsLogin={setIsLogin}
+        setIsSpaceMode={setIsSpaceMode}
+        isEditMode={isEditMode}
+        currentId={currentId}
+      />
     </div>
   );
 }

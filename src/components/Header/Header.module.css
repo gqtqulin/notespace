@@ -25,7 +25,8 @@
 .button {
   @apply p-2 text-3xl bg-black text-white rounded-md
    disabled:bg-neutral-800 disabled:text-zinc-400 
-   border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
+   border border-2 enabled:hover:border-indigo-800 enabled:hover:font-black
+   enabled:hover:text-indigo-200;
 }
 
 .shortAddressContainer {

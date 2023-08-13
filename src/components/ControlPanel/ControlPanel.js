@@ -1,5 +1,6 @@
-import styles from './ContolPanel.module.css';
+import styles from "./ContolPanel.module.css";
 import { ethAccounts } from "../../EthereumRequests";
+import Note from "../Note/Note";
 
 const ControlPanel = ({
   notes,
@@ -9,9 +10,10 @@ const ControlPanel = ({
   setCurrentId,
   setIsEditMode,
   setIsSpaceMode,
-  setIsLogin
+  setIsLogin,
+  isEditMode,
+  currentId
 }) => {
-
   const handleStartEditMode = async (key) => {
     const accounts = await ethAccounts();
     if (accounts[0] === account) {
@@ -27,20 +29,24 @@ const ControlPanel = ({
 
   const createList = () => {
     if (Object.keys(notes).length === 0) {
-      console.log("notes = 0");
+      console.log("notes.length = 0");
       return;
     }
 
     return (
       <ul className={styles.notesList}>
-        {Object.keys(notes).map((key) => {
+        {Object.entries(notes).map(([id, note]) => {
           return (
-            <li
-              onClick={() => handleStartEditMode(key)}
-              className={styles.listItem}
-              key={key}
-            >
-              <p>{key} &#128209;</p>
+            <li key={id} className={styles.listItem}>
+              <Note
+                id={id}
+                note={note}
+                isEditMode={isEditMode}
+                notes={notes}
+                setNotes={setNotes}
+                currentId={currentId}
+                setIsEditMode={setIsEditMode}
+              />
             </li>
           );
         })}
@@ -53,7 +59,7 @@ const ControlPanel = ({
       {Object.keys(notes).length > 0 ? (
         createList()
       ) : (
-        <p className="color-white">Time to create!</p>
+        <p className="">Time to create!</p>
       )}
     </div>
   );
