@@ -1,29 +1,15 @@
-.noteContainer {
-  @apply flex flex-col;
-}
-
 .noteForm {
-  @apply h-full w-full flex flex-col;
+  @apply w-full h-full;
 }
 
 .restForm {
-  @apply flex h-[15%] justify-around mb-4 items-center;
+  @apply flex items-center w-full;
 }
 
 .noteNameInput {
-  @apply text-white text-3xl bg-black border-solid border-white border-b-2;
-}
-
-.button {
-  @apply p-2 text-3xl bg-black text-white rounded-md 
-  disabled:bg-neutral-800 disabled:text-zinc-400 border 
-  border-2 enabled:hover:border-indigo-800 enabled:hover:font-black;
-}
-
-.textAreaContainer {
-  @apply h-full w-screen flex items-center justify-center;
+  @apply text-white text-3xl bg-black w-full focus:outline-indigo-800;
 }
 
 .textArea {
-  @apply w-full font-sans text-lg h-full rounded-lg;
+  @apply font-sans text-lg text-black w-full h-full;
 }
